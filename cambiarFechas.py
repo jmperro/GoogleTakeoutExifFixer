@@ -1,8 +1,8 @@
 import os
 import json
-import piexif
+# import piexif
 import sys
-from PIL import Image
+# from PIL import Image
 from datetime import datetime
 
 def change_file_date_and_exif(path):
