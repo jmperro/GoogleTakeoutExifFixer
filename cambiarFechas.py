@@ -21,15 +21,15 @@ def change_file_date_and_exif(path):
                             date_time_original = datetime.fromtimestamp(int(date_time_original))
                         
                             # We change the date in the EXIF data of the photo.
-                            if file.lower().endswith(('.png', '.jpg', '.jpeg', '.tiff')):
+                            # if file.lower().endswith(('.png', '.jpg', '.jpeg', '.tiff')):
 
-                                image = Image.open(image_file_path)
-                                exif_dict = piexif.load(image.info['exif'])
+                            #     image = Image.open(image_file_path)
+                            #     exif_dict = piexif.load(image.info['exif'])
 
-                                if exif_dict:
-                                    exif_dict['Exif'][piexif.ExifIFD.DateTimeOriginal] = date_time_original.strftime('%Y:%m:%d %H:%M:%S')
-                                    exif_bytes = piexif.dump(exif_dict)
-                                    image.save(image_file_path, exif=exif_bytes)
+                            #     if exif_dict:
+                            #         exif_dict['Exif'][piexif.ExifIFD.DateTimeOriginal] = date_time_original.strftime('%Y:%m:%d %H:%M:%S')
+                            #         exif_bytes = piexif.dump(exif_dict)
+                            #         image.save(image_file_path, exif=exif_bytes)
 
                             timestamp = date_time_original.timestamp()
                             os.utime(image_file_path, (timestamp, timestamp))
